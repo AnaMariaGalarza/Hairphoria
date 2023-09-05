@@ -1,0 +1,102 @@
+<<<<<<< HEAD
+=======
+  stages:
+    - build
+    - test
+    - deploy
+  
+  build_backend:
+    stage: build
+    image: maven:3.8.6-openjdk-18
+    script:
+      - cd BackEnd/
+      - echo "Building app..."
+      - mvn clean install
+      - echo "Finished building the app."
+    artifacts:
+      paths:
+        - BackEnd/target/Hairphoria-0.0.1-SNAPSHOT.jar
+    rules:
+      - changes:
+          - BackEnd/**/*
+  
+  build_frontend:
+    stage: build
+    image: node:latest
+    script:
+        - echo "Building the app"
+        - cd FrontEnd/HairPhoria
+        - rm -rf node_modules  # Elimina la carpeta node_modules
+        - npm --force install
+        - CI=false npm run build
+        - echo "Finished building the app."
+    artifacts:
+        name: react_build
+        paths:
+        - ./FrontEnd/HairPhoria/dist
+    rules:
+        - changes:
+            - FrontEnd/**/*
+  
+  test_backend:
+    stage: test
+    image: maven:3.8.6-openjdk-18
+    script:
+      - echo "Testing the app"
+      - cd BackEnd
+      - mvn test
+      - echo "Finished testing the app."
+    rules:
+      - changes:
+          - BackEnd/**/*
+  
+  test_frontend:
+    stage: test
+    image: node:latest
+    script:
+      - echo "Testing the app"
+      - cd FrontEnd/HairPhoria
+      - npm install
+      #- npm test
+      - echo "Finished testing the app."
+    rules:
+      - changes:
+          - FrontEnd/**/*
+  
+  deploy_Backend:
+    stage: deploy
+    needs: [build_backend]
+    image: alpine:3.11
+    before_script:
+      - apk update && apk add openssh-client bash
+      - mkdir -p ~/.ssh
+      - chmod 700 ~/.ssh
+      - eval $(ssh-agent -s)
+      - echo "$SSH_SERVERHAIRPHORIA1" | tr -d '\r' | ssh-add -
+      - touch ~/.ssh/config
+      - echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config
+      - ssh-keyscan -H 3.19.243.36 >> ~/.ssh/known_hosts
+      - chmod 644 ~/.ssh/known_hosts
+    script:
+      - echo "Deploying started..."
+      - ssh ubuntu@3.19.243.36 "sudo systemctl stop backHairPhoria.service"
+      - scp BackEnd/target/Hairphoria-0.0.1-SNAPSHOT.jar ubuntu@3.19.243.36:~/
+      - ssh ubuntu@3.19.243.36 "sudo systemctl start backHairPhoria.service"
+      - echo "Finished deploying the app."
+    rules:
+      - changes:
+          - BackEnd/**/*
+  
+  deploy_Frontend:
+    stage: deploy
+    needs: [build_frontend]
+    image: python:latest
+    script:
+      - pip install awscli
+      - aws configure set aws_secret_key_id $AWS_ACCESS_KEY_ID
+      - aws configure set aws_secret_access_key $AWS_SECRET_ACCESS_KEY
+      - aws s3 sync FrontEnd/HairPhoria/dist/ s3://s3-hairphoria-front
+    rules:
+      - changes:
+          - FrontEnd/**/*
+>>>>>>> Dev

@@ -1,0 +1,1893 @@
+{
+	"info": {
+		"_postman_id": "3b4c6f5b-036c-4703-bb3d-645a0ba9d3dc",
+		"name": "Hairphoria",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "24635478"
+	},
+	"item": [
+		{
+			"name": "Categorias",
+			"item": [
+				{
+					"name": "Save",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// Prueba 1: Compruebe que el código de estado de la respuesta es 201\r",
+									"pm.test(\"Status code is 201 Created\", function () {\r",
+									"    pm.response.to.have.status(201);\r",
+									"});\r",
+									"\r",
+									"// Prueba 2: Verificar que el cuerpo de la respuesta es un objeto\r",
+									"pm.test(\"Response body is an object\", function () {\r",
+									"    pm.expect(pm.response.json()).to.be.an(\"object\");\r",
+									"});\r",
+									"\r",
+									"// Prueba 3: Compruebe que el tiempo de respuesta es inferior a 1000 ms.\r",
+									"pm.test(\"Response time is less than 1000ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
+									"});\r",
+									"\r",
+									"// Prueba 4: Verificar que la respuesta contiene los campos esperados // Response\r",
+									"pm.test(\"Response contains expected fields\", function () {\r",
+									"    var data = pm.response.json();\r",
+									"    pm.expect(data).to.have.property(\"especialidad\");\r",
+									"});\r",
+									"\r",
+									"// Prueba 5: Comprobar que el cuerpo de la solicitud es correcto // Request\r",
+									"pm.test(\"Request body is correct\", function () {\r",
+									"    var requestBody = JSON.parse(pm.request.body.raw);\r",
+									"    pm.expect(requestBody).to.have.property(\"especialidad\");\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"especialidad\": \"tintura\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/categorias",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"categorias"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find All",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// Prueba 1: Compruebe que el código de estado de la respuesta es 200 OK\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"// Prueba 2: Verificar que el cuerpo de la respuesta es un array\r",
+									"pm.test(\"Response body is an array\", function () {\r",
+									"    pm.expect(pm.response.json()).to.be.an(\"array\");\r",
+									"});\r",
+									"\r",
+									"// Prueba 3: Compruebe que el tiempo de respuesta es inferior a 1000 ms.\r",
+									"pm.test(\"Response time is less than 1000ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
+									"});\r",
+									"\r",
+									"// Prueba 4: Verificar que la respuesta contiene los campos esperados\r",
+									"pm.test(\"Response contains expected fields\", function () {\r",
+									"    var data = pm.response.json();\r",
+									"    pm.expect(data[0]).to.have.property(\"especialidad\");\r",
+									"});\r",
+									"\r",
+									"// Test 5: Compruebe que la respuesta tiene al menos un elemento\r",
+									"pm.test(\"Response array has at least one element\", function () {\r",
+									"    var data = pm.response.json();\r",
+									"    pm.expect(data.length).to.be.above(0);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/categorias",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"categorias"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find By Id",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// Prueba 1: Compruebe que el código de estado de la respuesta es 200 OK\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"// Prueba 2: Verificar que el cuerpo de la respuesta es un objeto\r",
+									"pm.test(\"Response body is an object\", function () {\r",
+									"    pm.expect(pm.response.json()).to.be.an(\"object\");\r",
+									"});\r",
+									"\r",
+									"// Prueba 3: Compruebe que el tiempo de respuesta es inferior a 1000 ms.\r",
+									"pm.test(\"Response time is less than 1000ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
+									"});\r",
+									"\r",
+									"// Prueba 4: Verificar que la respuesta contiene los campos esperados\r",
+									"pm.test(\"Response contains expected fields\", function () {\r",
+									"    var data = pm.response.json();\r",
+									"    pm.expect(data).to.have.property(\"especialidad\");\r",
+									"});\r",
+									"\r",
+									"// Prueba 5: Compruebe que el objeto de respuesta no está vacío\r",
+									"pm.test(\"Response object is not empty\", function () {\r",
+									"    var data = pm.response.json();\r",
+									"    pm.expect(Object.keys(data).length).to.be.above(0);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/categorias/:id",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"categorias",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// Prueba 1: Compruebe que el código de estado de la respuesta es 200 OK\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"// Prueba 2: Verificar que el cuerpo de la respuesta es un objeto\r",
+									"pm.test(\"Response body is an object\", function () {\r",
+									"    pm.expect(pm.response.json()).to.be.an(\"object\");\r",
+									"});\r",
+									"\r",
+									"\r",
+									"// Prueba 3: Compruebe que el tiempo de respuesta es inferior a 1000 ms.\r",
+									"pm.test(\"Response time is less than 1000ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
+									"});\r",
+									"\r",
+									"// Prueba 4: Verificar que la respuesta contiene los campos esperados // Response\r",
+									"pm.test(\"Response contains expected fields\", function () {\r",
+									"    var data = pm.response.json();\r",
+									"    pm.expect(data).to.have.property(\"especialidad\");\r",
+									"});\r",
+									"\r",
+									"// Prueba 5: Compruebe que el cuerpo de la solicitud y la variable de ruta son correctos\r",
+									"pm.test(\"Request body and path variable are correct\", function () {\r",
+									"    var requestBody = JSON.parse(pm.request.body.raw);\r",
+									"    pm.expect(requestBody).to.have.property(\"especialidad\");\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"especialidad\": \"Manicure\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/categorias/:id",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"categorias",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// Prueba 1: Verificar que el código de estado de la respuesta es 200\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"// Prueba 2: Comprueba que el cuerpo de la respuesta está retornando un mensaje\r",
+									"const id = pm.request.url.path[1];\r",
+									"pm.test(\"Response body is empty\", function () {\r",
+									"    pm.expect(pm.response.text()).to.be.eql(\"Se elimino la categoria con id: \" + id);\r",
+									"});\r",
+									"\r",
+									"// Prueba 3: Compruebe que el tiempo de respuesta es inferior a 1000 ms.\r",
+									"pm.test(\"Response time is less than 1000ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
+									"});\r",
+									"\r",
+									"// Prueba 4: Verificar que el cuerpo de la petición es vacio\r",
+									"pm.test(\"Request body empty\", function () {\r",
+									"   pm.expect(pm.request.body.raw).to.be.undefined;\r",
+									"});\r",
+									"\r",
+									"// Prueba 5: Comprueba que el método de solicitud es DELETE\r",
+									"pm.test(\"Request method is DELETE\", function () {\r",
+									"    pm.expect(pm.request.method).to.equal(\"DELETE\");\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/categorias/:id",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"categorias",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Servicios",
+			"item": [
+				{
+					"name": "Save",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// Prueba 1: Compruebe que el código de estado de la respuesta es 201\r",
+									"pm.test(\"Status code is 201 Created\", function () {\r",
+									"    pm.response.to.have.status(201);\r",
+									"});\r",
+									"\r",
+									"// Prueba 2: Verificar que el cuerpo de la respuesta es un objeto\r",
+									"pm.test(\"Response body is an object\", function () {\r",
+									"    pm.expect(pm.response.json()).to.be.an(\"object\");\r",
+									"});\r",
+									"\r",
+									"// Prueba 3: Compruebe que el tiempo de respuesta es inferior a 1000 ms.\r",
+									"pm.test(\"Response time is less than 1000ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
+									"});\r",
+									"\r",
+									"// Prueba 4: Verificar que la respuesta contiene los campos esperados // Response\r",
+									"pm.test(\"Response contains expected fields\", function () {\r",
+									"    var data = pm.response.json();\r",
+									"    pm.expect(data).to.have.property(\"precio\");\r",
+									"    pm.expect(data).to.have.property(\"imagen\");\r",
+									"    pm.expect(data).to.have.property(\"descripcion\");\r",
+									"    pm.expect(data).to.have.property(\"especialidad\");\r",
+									"    pm.expect(data).to.have.property(\"id\");    \r",
+									"});\r",
+									"\r",
+									"// Prueba 5: Comprobar que el cuerpo de la solicitud es correcto // Request\r",
+									"pm.test(\"Request body is correct\", function () {\r",
+									"    var requestBody = JSON.parse(pm.request.body.raw);\r",
+									"    pm.expect(requestBody).to.have.property(\"precio\");\r",
+									"    pm.expect(requestBody).to.have.property(\"imagen\");\r",
+									"    pm.expect(requestBody).to.have.property(\"descripcion\");\r",
+									"    pm.expect(requestBody).to.have.property(\"especialidad\");\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\"precio\": 80000.0,\r\n\"imagen\": \"https://peluqueriaverano.com/service/cortes-de-cabello-para-mujer/\",\r\n\"descripcion\": \"tintura\",\r\n\"especialidad\": \"tintura\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/servicios",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"servicios"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find All",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// Prueba 1: Compruebe que el código de estado de la respuesta es 200 OK\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"// Prueba 2: Verificar que el cuerpo de la respuesta es un array\r",
+									"pm.test(\"Response body is an array\", function () {\r",
+									"    pm.expect(pm.response.json()).to.be.an(\"array\");\r",
+									"});\r",
+									"\r",
+									"// Prueba 3: Compruebe que el tiempo de respuesta es inferior a 1000 ms.\r",
+									"pm.test(\"Response time is less than 1000ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
+									"});\r",
+									"\r",
+									"// Prueba 4: Verificar que la respuesta contiene los campos esperados\r",
+									"pm.test(\"Response contains expected fields\", function () {\r",
+									"    var data = pm.response.json();\r",
+									"    pm.expect(data[0]).to.have.property(\"especialidad\");\r",
+									"});\r",
+									"\r",
+									"// Test 5: Compruebe que la respuesta tiene al menos un elemento\r",
+									"pm.test(\"Response array has at least one element\", function () {\r",
+									"    var data = pm.response.json();\r",
+									"    pm.expect(data.length).to.be.above(0);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/servicios",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"servicios"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find By Id",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// Prueba 1: Compruebe que el código de estado de la respuesta es 200 OK\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"// Prueba 2: Verificar que el cuerpo de la respuesta es un objeto\r",
+									"pm.test(\"Response body is an object\", function () {\r",
+									"    pm.expect(pm.response.json()).to.be.an(\"object\");\r",
+									"});\r",
+									"\r",
+									"// Prueba 3: Compruebe que el tiempo de respuesta es inferior a 1000 ms.\r",
+									"pm.test(\"Response time is less than 1000ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
+									"});\r",
+									"\r",
+									"// Prueba 4: Verificar que la respuesta contiene los campos esperados\r",
+									"pm.test(\"Response contains expected fields\", function () {\r",
+									"    var data = pm.response.json();\r",
+									"    pm.expect(data).to.have.property(\"especialidad\");\r",
+									"});\r",
+									"\r",
+									"// Prueba 5: Compruebe que el objeto de respuesta no está vacío\r",
+									"pm.test(\"Response object is not empty\", function () {\r",
+									"    var data = pm.response.json();\r",
+									"    pm.expect(Object.keys(data).length).to.be.above(0);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/servicios/:id",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"servicios",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// Prueba 1: Compruebe que el código de estado de la respuesta es 200 OK\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"// Prueba 2: Verificar que el cuerpo de la respuesta es un objeto\r",
+									"pm.test(\"Response body is an object\", function () {\r",
+									"    pm.expect(pm.response.json()).to.be.an(\"object\");\r",
+									"});\r",
+									"\r",
+									"\r",
+									"// Prueba 3: Compruebe que el tiempo de respuesta es inferior a 1000 ms.\r",
+									"pm.test(\"Response time is less than 1000ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
+									"});\r",
+									"\r",
+									"// Prueba 4: Verificar que la respuesta contiene los campos esperados // Response\r",
+									"pm.test(\"Response contains expected fields\", function () {\r",
+									"    var data = pm.response.json();\r",
+									"    pm.expect(data).to.have.property(\"precio\");\r",
+									"    pm.expect(data).to.have.property(\"imagen\");\r",
+									"    pm.expect(data).to.have.property(\"nombre\");\r",
+									"    pm.expect(data).to.have.property(\"especialidad\");\r",
+									"});\r",
+									"\r",
+									"// Prueba 5: Compruebe que el cuerpo de la solicitud y la variable de ruta son correctos\r",
+									"pm.test(\"Request body and path variable are correct\", function () {\r",
+									"    var requestBody = JSON.parse(pm.request.body.raw);\r",
+									"    pm.expect(requestBody).to.have.property(\"precio\");\r",
+									"    pm.expect(requestBody).to.have.property(\"imagen\");\r",
+									"    pm.expect(requestBody).to.have.property(\"nombre\");\r",
+									"    pm.expect(requestBody).to.have.property(\"especialidad\");\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"precio\": \"65000.0\",\r\n  \"imagen\": \"\",\r\n  \"nombre\": \"tintura\",\r\n  \"especialidad\": \"tintura\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/servicios/:id",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"servicios",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// Prueba 1: Verificar que el código de estado de la respuesta es 200\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"// Prueba 2: Comprueba que el cuerpo de la respuesta está retornando un mensaje\r",
+									"const id = pm.request.url.path[1];\r",
+									"pm.test(\"Response body is empty\", function () {\r",
+									"    pm.expect(pm.response.text()).to.be.eql(\"Se elimino el servicio de id: 2\");\r",
+									"});\r",
+									"\r",
+									"// Prueba 3: Compruebe que el tiempo de respuesta es inferior a 1000 ms.\r",
+									"pm.test(\"Response time is less than 1000ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
+									"});\r",
+									"\r",
+									"// Prueba 4: Verificar que el cuerpo de la petición es vacio\r",
+									"pm.test(\"Request body empty\", function () {\r",
+									"   pm.expect(pm.request.body.raw).to.be.undefined;\r",
+									"});\r",
+									"\r",
+									"// Prueba 5: Comprueba que el método de solicitud es DELETE\r",
+									"pm.test(\"Request method is DELETE\", function () {\r",
+									"    pm.expect(pm.request.method).to.equal(\"DELETE\");\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/servicios/:id",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"servicios",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Clientes",
+			"item": [
+				{
+					"name": "Save",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// Prueba 1: Compruebe que el código de estado de la respuesta es 201\r",
+									"pm.test(\"Status code is 201 Created\", function () {\r",
+									"    pm.response.to.have.status(201);\r",
+									"});\r",
+									"\r",
+									"// Prueba 2: Verificar que el cuerpo de la respuesta es un objeto\r",
+									"pm.test(\"Response body is an object\", function () {\r",
+									"    pm.expect(pm.response.json()).to.be.an(\"object\");\r",
+									"});\r",
+									"\r",
+									"// Prueba 3: Compruebe que el tiempo de respuesta es inferior a 1000 ms.\r",
+									"pm.test(\"Response time is less than 1000ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
+									"});\r",
+									"\r",
+									"// Prueba 4: Verificar que la respuesta contiene los campos esperados // Response\r",
+									"pm.test(\"Response contains expected fields\", function () {\r",
+									"    var data = pm.response.json();\r",
+									"    pm.expect(data).to.have.property(\"nombre\");\r",
+									"    pm.expect(data).to.have.property(\"email\");\r",
+									"    pm.expect(data).to.have.property(\"id\");\r",
+									" \r",
+									"});\r",
+									"\r",
+									"// Prueba 5: Comprobar que el cuerpo de la solicitud es correcto // Request\r",
+									"pm.test(\"Request body is correct\", function () {\r",
+									"    var requestBody = JSON.parse(pm.request.body.raw);\r",
+									"    pm.expect(requestBody).to.have.property(\"nombre\");\r",
+									"    pm.expect(requestBody).to.have.property(\"apellido\");\r",
+									"    pm.expect(requestBody).to.have.property(\"documento\");\r",
+									"    pm.expect(requestBody).to.have.property(\"email\");\r",
+									"    pm.expect(requestBody).to.have.property(\"telefono\");  \r",
+									"    pm.expect(requestBody).to.have.property(\"password\"); \r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"nombre\": \"Test\",\r\n  \"apellido\": \"Usuario\",\r\n  \"documento\":\"1875\" ,\r\n  \"email\": \"testusuariow@gmail.com\",\r\n  \"telefono\": 6789,\r\n  \"password\": \"testusuario\",\r\n  \"rol\": \"usuario\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/clientes",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"clientes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find All",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// Prueba 1: Compruebe que el código de estado de la respuesta es 200 OK\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"// Prueba 2: Verificar que el cuerpo de la respuesta es un array\r",
+									"pm.test(\"Response body is an array\", function () {\r",
+									"    pm.expect(pm.response.json()).to.be.an(\"array\");\r",
+									"});\r",
+									"\r",
+									"// Prueba 3: Compruebe que el tiempo de respuesta es inferior a 1000 ms.\r",
+									"pm.test(\"Response time is less than 1000ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
+									"});\r",
+									"\r",
+									"// Prueba 4: Verificar que la respuesta contiene los campos esperados\r",
+									"pm.test(\"Response contains expected fields\", function () {\r",
+									"    var data = pm.response.json();\r",
+									"    pm.expect(data[0]).to.have.property(\"nombre\");\r",
+									"    pm.expect(data[0]).to.have.property(\"email\");\r",
+									"    pm.expect(data[0]).to.have.property(\"id\");\r",
+									"});\r",
+									"\r",
+									"// Test 5: Compruebe que la respuesta tiene al menos un elemento\r",
+									"pm.test(\"Response array has at least one element\", function () {\r",
+									"    var data = pm.response.json();\r",
+									"    pm.expect(data.length).to.be.above(0);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/clientes",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"clientes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find By Id",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// Prueba 1: Compruebe que el código de estado de la respuesta es 200 OK\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"// Prueba 2: Verificar que el cuerpo de la respuesta es un objeto\r",
+									"pm.test(\"Response body is an object\", function () {\r",
+									"    pm.expect(pm.response.json()).to.be.an(\"object\");\r",
+									"});\r",
+									"\r",
+									"// Prueba 3: Compruebe que el tiempo de respuesta es inferior a 1000 ms.\r",
+									"pm.test(\"Response time is less than 1000ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
+									"});\r",
+									"\r",
+									"// Prueba 4: Verificar que la respuesta contiene los campos esperados\r",
+									"pm.test(\"Response contains expected fields\", function () {\r",
+									"    var data = pm.response.json();\r",
+									"    pm.expect(data).to.have.property(\"nombre\");\r",
+									"    pm.expect(data).to.have.property(\"email\");\r",
+									"    pm.expect(data).to.have.property(\"id\");\r",
+									"});\r",
+									"\r",
+									"// Prueba 5: Compruebe que el objeto de respuesta no está vacío\r",
+									"pm.test(\"Response object is not empty\", function () {\r",
+									"    var data = pm.response.json();\r",
+									"    pm.expect(Object.keys(data).length).to.be.above(0);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiJ9.eyJzdWIiOiI1Iiwic2NvcGUiOiJBRE1JTiIsImFwZWxsaWRvIjoiQWRtaW4iLCJyb2xlcyI6IkFETUlOIiwiaXNzIjoiY29tLmxvZi5jb3JyZW9kZW1vIiwiZXhwIjoxNjg1NjcyNTM3LCJpYXQiOjE2ODU2MzY1MzcsIm5vbWJyZSI6Ik1heWUiLCJlbWFpbCI6Im1heWVAZ21haWwuY29tIiwiYXV0aG9yaXRpZXMiOlsiQURNSU4iXX0.IGatH83JByL0ELi8YvLAqKvRuZFgo3F_yavwmU2bsQhWpi7Wa5_pXTJS-CqE0rulYhsMuPqlK7SCr3MEqQOm9ukbfD8xpF0axisbIk1-Vj-1mcdVWTC03YI5haA_cCD1TkfrvnUAWKnpjrTypNzOo4w1VPazsl82yTiwT3Y9ijA6uaK3m14ZK1C5ijBBNVu1slnTu-3bseqW3ROMV2nkb-OIhA7xfjrT1N3YfDsKdO9JQ4Wd5jrnQz9LDJx56RN-XRyJJMs-iY9uPgAjv5sh1k5UoPILfNx7m268Qvaw-W0cgN9TLzwao4lXJiomr1y_xA4Ovct1ISg5mtzp0NuT4KfIvHk0D7pPiUtIN5pKeynRpJC0OOn2xpcWz6GIsz2FvZSopBxsR6TE9_kWSuOxYF-EWA61lrMEyTpLZVGrOx0ja__l9c1Vph98-lFnxCHNQMq2ZMzUFo0q-eIPkizVTEa0cXuiAcjQ8nNixh-_QrRmB47PS40kFsim1IE1Tg_my5UzYMk49RlTgPSHySV5empJ4l12JHJTN6b9nGd1H5CP_l_bE_42nCZiG7spl1jHIAX2MYUJzBK8PIZG-kTF-dxr7eskwHOKSHCajJLm7XC9sSQfgF7edBaJ797-4swAJZ_NOiXPLMbEUngLUd2C5mzIDqRwj-UR-cH6ltyQzgQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/clientes/:id",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"clientes",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// Prueba 1: Compruebe que el código de estado de la respuesta es 200 OK\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"// Prueba 2: Verificar que el cuerpo de la respuesta es un objeto\r",
+									"pm.test(\"Response body is an object\", function () {\r",
+									"    pm.expect(pm.response.json()).to.be.an(\"object\");\r",
+									"});\r",
+									"\r",
+									"\r",
+									"// Prueba 3: Compruebe que el tiempo de respuesta es inferior a 1000 ms.\r",
+									"pm.test(\"Response time is less than 1000ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
+									"});\r",
+									"\r",
+									"// Prueba 4: Verificar que la respuesta contiene los campos esperados // Response\r",
+									"pm.test(\"Response contains expected fields\", function () {\r",
+									"    var data = pm.response.json();\r",
+									"       pm.expect(data).to.have.property(\"nombre\");\r",
+									"    pm.expect(data).to.have.property(\"email\");\r",
+									"    pm.expect(data).to.have.property(\"id\");\r",
+									"});\r",
+									"\r",
+									"// Prueba 5: Compruebe que el cuerpo de la solicitud y la variable de ruta son correctos\r",
+									"pm.test(\"Request body and path variable are correct\", function () {\r",
+									"    var requestBody = JSON.parse(pm.request.body.raw);\r",
+									"    pm.expect(requestBody).to.have.property(\"nombre\");\r",
+									"    pm.expect(requestBody).to.have.property(\"apellido\");\r",
+									"    pm.expect(requestBody).to.have.property(\"documento\");\r",
+									"    pm.expect(requestBody).to.have.property(\"email\");\r",
+									"    pm.expect(requestBody).to.have.property(\"telefono\");  \r",
+									"    pm.expect(requestBody).to.have.property(\"password\"); \r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"nombre\": \"Nelson\",\r\n  \"apellido\": \"Camacho\",\r\n  \"documento\":\"1875\" ,\r\n  \"email\": \"neldavca@gmail.co\",\r\n  \"telefono\": 6789,\r\n  \"password\": \"nelpastel0308\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/clientes/:id",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"clientes",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/clientes/:id",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"clientes",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Profesionales",
+			"item": [
+				{
+					"name": "Save",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// Prueba 1: Compruebe que el código de estado de la respuesta es 201\r",
+									"pm.test(\"Status code is 201 Created\", function () {\r",
+									"    pm.response.to.have.status(201);\r",
+									"});\r",
+									"\r",
+									"// Prueba 2: Verificar que el cuerpo de la respuesta es un objeto\r",
+									"pm.test(\"Response body is an object\", function () {\r",
+									"    pm.expect(pm.response.json()).to.be.an(\"object\");\r",
+									"});\r",
+									"\r",
+									"// Prueba 3: Compruebe que el tiempo de respuesta es inferior a 1000 ms.\r",
+									"pm.test(\"Response time is less than 1000ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
+									"});\r",
+									"\r",
+									"// Prueba 4: Verificar que la respuesta contiene los campos esperados // Response\r",
+									"pm.test(\"Response contains expected fields\", function () {\r",
+									"    var data = pm.response.json();\r",
+									"    pm.expect(data).to.have.property(\"nombre\");\r",
+									"    pm.expect(data).to.have.property(\"email\");\r",
+									"    pm.expect(data).to.have.property(\"id\");\r",
+									"    pm.expect(data).to.have.property(\"especialidad\");\r",
+									"});\r",
+									"\r",
+									"// Prueba 5: Comprobar que el cuerpo de la solicitud es correcto // Request\r",
+									"pm.test(\"Request body is correct\", function () {\r",
+									"    var requestBody = JSON.parse(pm.request.body.raw);\r",
+									"    pm.expect(requestBody).to.have.property(\"nombre\");\r",
+									"    pm.expect(requestBody).to.have.property(\"apellido\");\r",
+									"    pm.expect(requestBody).to.have.property(\"documento\");\r",
+									"    pm.expect(requestBody).to.have.property(\"email\");\r",
+									"    pm.expect(requestBody).to.have.property(\"telefono\");  \r",
+									"    pm.expect(requestBody).to.have.property(\"password\"); \r",
+									"    pm.expect(requestBody).to.have.property(\"especialidad\");\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"nombre\": \"Jose\",\r\n  \"apellido\": \"Jose\",\r\n  \"documento\": 34089765,\r\n  \"email\": \"mariovor@gmail.com\",\r\n  \"telefono\": 345603478,\r\n  \"password\": \"mario0101\",\r\n  \"especialidades\": [\"Manos y Pies Perfectos\"],\r\n  \"horarios\": [\r\n    {\r\n      \"dia\": \"Lunes\",\r\n      \"horas\": [\"08:00:00\", \"09:00:00\", \"10:00:00\",\"11:00:00\",\"14:00:00\",\"15:00:00\"]\r\n    }\r\n  ],\r\n  \"rol\": \"usuario\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/profesionales",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"profesionales"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find All",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// Prueba 1: Compruebe que el código de estado de la respuesta es 200 OK\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"// Prueba 2: Verificar que el cuerpo de la respuesta es un array\r",
+									"pm.test(\"Response body is an array\", function () {\r",
+									"    pm.expect(pm.response.json()).to.be.an(\"array\");\r",
+									"});\r",
+									"\r",
+									"// Prueba 3: Compruebe que el tiempo de respuesta es inferior a 1000 ms.\r",
+									"pm.test(\"Response time is less than 1000ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
+									"});\r",
+									"\r",
+									"// Prueba 4: Verificar que la respuesta contiene los campos esperados\r",
+									"pm.test(\"Response contains expected fields\", function () {\r",
+									"    var data = pm.response.json();\r",
+									"    pm.expect(data[0]).to.have.property(\"nombre\");\r",
+									"    pm.expect(data[0]).to.have.property(\"email\");\r",
+									"    pm.expect(data[0]).to.have.property(\"id\");\r",
+									"    pm.expect(data[0]).to.have.property(\"especialidad\");\r",
+									"});\r",
+									"\r",
+									"// Test 5: Compruebe que la respuesta tiene al menos un elemento\r",
+									"pm.test(\"Response array has at least one element\", function () {\r",
+									"    var data = pm.response.json();\r",
+									"    pm.expect(data.length).to.be.above(0);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{URL}}/profesionales",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"profesionales"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find By Id",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// Prueba 1: Compruebe que el código de estado de la respuesta es 200 OK\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"// Prueba 2: Verificar que el cuerpo de la respuesta es un objeto\r",
+									"pm.test(\"Response body is an object\", function () {\r",
+									"    pm.expect(pm.response.json()).to.be.an(\"object\");\r",
+									"});\r",
+									"\r",
+									"// Prueba 3: Compruebe que el tiempo de respuesta es inferior a 1000 ms.\r",
+									"pm.test(\"Response time is less than 1000ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
+									"});\r",
+									"\r",
+									"// Prueba 4: Verificar que la respuesta contiene los campos esperados\r",
+									"pm.test(\"Response contains expected fields\", function () {\r",
+									"    var data = pm.response.json();\r",
+									"    pm.expect(data).to.have.property(\"nombre\");\r",
+									"    pm.expect(data).to.have.property(\"email\");\r",
+									"    pm.expect(data).to.have.property(\"id\");\r",
+									"    pm.expect(data).to.have.property(\"especialidad\");\r",
+									"});\r",
+									"\r",
+									"// Prueba 5: Compruebe que el objeto de respuesta no está vacío\r",
+									"pm.test(\"Response object is not empty\", function () {\r",
+									"    var data = pm.response.json();\r",
+									"    pm.expect(Object.keys(data).length).to.be.above(0);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{URL}}/profesionales/:id",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"profesionales",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// Prueba 1: Compruebe que el código de estado de la respuesta es 200 OK\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"// Prueba 2: Verificar que el cuerpo de la respuesta es un objeto\r",
+									"pm.test(\"Response body is an object\", function () {\r",
+									"    pm.expect(pm.response.json()).to.be.an(\"object\");\r",
+									"});\r",
+									"\r",
+									"\r",
+									"// Prueba 3: Compruebe que el tiempo de respuesta es inferior a 1000 ms.\r",
+									"pm.test(\"Response time is less than 1000ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
+									"});\r",
+									"\r",
+									"// Prueba 4: Verificar que la respuesta contiene los campos esperados // Response\r",
+									"pm.test(\"Response contains expected fields\", function () {\r",
+									"    var data = pm.response.json();\r",
+									"       pm.expect(data).to.have.property(\"nombre\");\r",
+									"    pm.expect(data).to.have.property(\"email\");\r",
+									"    pm.expect(data).to.have.property(\"id\");\r",
+									"    pm.expect(data).to.have.property(\"especialidad\");\r",
+									"});\r",
+									"\r",
+									"// Prueba 5: Compruebe que el cuerpo de la solicitud y la variable de ruta son correctos\r",
+									"pm.test(\"Request body and path variable are correct\", function () {\r",
+									"    var requestBody = JSON.parse(pm.request.body.raw);\r",
+									"      pm.expect(requestBody).to.have.property(\"nombre\");\r",
+									"    pm.expect(requestBody).to.have.property(\"apellido\");\r",
+									"    pm.expect(requestBody).to.have.property(\"documento\");\r",
+									"    pm.expect(requestBody).to.have.property(\"email\");\r",
+									"    pm.expect(requestBody).to.have.property(\"telefono\");  \r",
+									"    pm.expect(requestBody).to.have.property(\"password\"); \r",
+									"    pm.expect(requestBody).to.have.property(\"especialidad\");\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"nombre\": \"Yisel\",\r\n  \"apellido\": \"Ovalle\",\r\n  \"documento\": 123,\r\n  \"email\": \"yis@gmail.co\",\r\n  \"telefono\": 45678,\r\n  \"password\": \"yis9\",\r\n  \"especialidad\": \"manicure\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/profesionales/:id",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"profesionales",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// Prueba 1: Verificar que el código de estado de la respuesta es 200\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"// Prueba 2: Comprueba que el cuerpo de la respuesta está retornando un mensaje\r",
+									"const id = pm.request.url.path[1];\r",
+									"pm.test(\"Response body is empty\", function () {\r",
+									"    pm.expect(pm.response.text()).to.be.eql(\"Se elimino el cliente de id: \");\r",
+									"});\r",
+									"\r",
+									"// Prueba 3: Compruebe que el tiempo de respuesta es inferior a 1000 ms.\r",
+									"pm.test(\"Response time is less than 1000ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
+									"});\r",
+									"\r",
+									"// Prueba 4: Verificar que el cuerpo de la petición es vacio\r",
+									"pm.test(\"Request body empty\", function () {\r",
+									"   pm.expect(pm.request.body.raw).to.be.undefined;\r",
+									"});\r",
+									"\r",
+									"// Prueba 5: Comprueba que el método de solicitud es DELETE\r",
+									"pm.test(\"Request method is DELETE\", function () {\r",
+									"    pm.expect(pm.request.method).to.equal(\"DELETE\");\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/profesionales/:id",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"profesionales",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Turno",
+			"item": [
+				{
+					"name": "Save",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// Prueba 1: Compruebe que el código de estado de la respuesta es 201\r",
+									"pm.test(\"Status code is 201 Created\", function () {\r",
+									"    pm.response.to.have.status(201);\r",
+									"});\r",
+									"\r",
+									"// Prueba 2: Verificar que el cuerpo de la respuesta es un objeto\r",
+									"pm.test(\"Response body is an object\", function () {\r",
+									"    pm.expect(pm.response.json()).to.be.an(\"object\");\r",
+									"});\r",
+									"\r",
+									"// Prueba 3: Compruebe que el tiempo de respuesta es inferior a 1000 ms.\r",
+									"pm.test(\"Response time is less than 1000ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
+									"});\r",
+									"\r",
+									"// Prueba 4: Verificar que la respuesta contiene los campos esperados // Response\r",
+									"pm.test(\"Response contains expected fields\", function () {\r",
+									"    var data = pm.response.json();\r",
+									"    pm.expect(data).to.have.property(\"cliente\");\r",
+									"    pm.expect(data).to.have.property(\"profesional\");\r",
+									"    pm.expect(data).to.have.property(\"servicio\");\r",
+									"    pm.expect(data).to.have.property(\"fecha_hora_inicio\");\r",
+									"    pm.expect(data).to.have.property(\"fecha_hora_final\");\r",
+									"});\r",
+									"\r",
+									"// Prueba 5: Comprobar que el cuerpo de la solicitud es correcto // Request\r",
+									"pm.test(\"Request body is correct\", function () {\r",
+									"    var requestBody = JSON.parse(pm.request.body.raw);\r",
+									"    pm.expect(requestBody).to.have.property(\"clienteId\");\r",
+									"    pm.expect(requestBody).to.have.property(\"profesionalId\");\r",
+									"    pm.expect(requestBody).to.have.property(\"servicioId\");\r",
+									"    pm.expect(requestBody).to.have.property(\"fecha_hora_inicio\");\r",
+									"    pm.expect(requestBody).to.have.property(\"fecha_hora_final\");\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"clienteId\": 1,\r\n  \"profesionalId\": 1,\r\n  \"servicioId\": 1,\r\n  \"fecha_hora_inicio\": \"2023-05-15T19:57:15\",\r\n  \"fecha_hora_final\": \"2023-05-15T19:57:15\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/turnos",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"turnos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find All",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// Prueba 1: Compruebe que el código de estado de la respuesta es 200 OK\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"// Prueba 2: Verificar que el cuerpo de la respuesta es un array\r",
+									"pm.test(\"Response body is an array\", function () {\r",
+									"    pm.expect(pm.response.json()).to.be.an(\"array\");\r",
+									"});\r",
+									"\r",
+									"// Prueba 3: Compruebe que el tiempo de respuesta es inferior a 1000 ms.\r",
+									"pm.test(\"Response time is less than 1000ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
+									"});\r",
+									"\r",
+									"// Prueba 4: Verificar que la respuesta contiene los campos esperados\r",
+									"pm.test(\"Response contains expected fields\", function () {\r",
+									"    var data = pm.response.json();\r",
+									"    pm.expect(data[0]).to.have.property(\"cliente\");\r",
+									"    pm.expect(data[0]).to.have.property(\"profesional\");\r",
+									"    pm.expect(data[0]).to.have.property(\"servicio\");\r",
+									"    pm.expect(data[0]).to.have.property(\"fecha_hora_inicio\");\r",
+									"    pm.expect(data[0]).to.have.property(\"fecha_hora_final\");\r",
+									"});\r",
+									"\r",
+									"// Test 5: Compruebe que la respuesta tiene al menos un elemento\r",
+									"pm.test(\"Response array has at least one element\", function () {\r",
+									"    var data = pm.response.json();\r",
+									"    pm.expect(data.length).to.be.above(0);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/turnos",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"turnos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find By Id",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// Prueba 1: Compruebe que el código de estado de la respuesta es 200 OK\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"// Prueba 2: Verificar que el cuerpo de la respuesta es un objeto\r",
+									"pm.test(\"Response body is an object\", function () {\r",
+									"    pm.expect(pm.response.json()).to.be.an(\"object\");\r",
+									"});\r",
+									"\r",
+									"// Prueba 3: Compruebe que el tiempo de respuesta es inferior a 1000 ms.\r",
+									"pm.test(\"Response time is less than 1000ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
+									"});\r",
+									"\r",
+									"// Prueba 4: Verificar que la respuesta contiene los campos esperados\r",
+									"pm.test(\"Response contains expected fields\", function () {\r",
+									"    var data = pm.response.json();\r",
+									"    pm.expect(data).to.have.property(\"cliente\");\r",
+									"    pm.expect(data).to.have.property(\"profesional\");\r",
+									"    pm.expect(data).to.have.property(\"servicio\");\r",
+									"    pm.expect(data).to.have.property(\"fecha_hora_inicio\");\r",
+									"    pm.expect(data).to.have.property(\"fecha_hora_final\");\r",
+									"});\r",
+									"\r",
+									"// Prueba 5: Compruebe que el objeto de respuesta no está vacío\r",
+									"pm.test(\"Response object is not empty\", function () {\r",
+									"    var data = pm.response.json();\r",
+									"    pm.expect(Object.keys(data).length).to.be.above(0);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/turnos/:id",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"turnos",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// Prueba 1: Compruebe que el código de estado de la respuesta es 200 OK\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"// Prueba 2: Verificar que el cuerpo de la respuesta es un objeto\r",
+									"pm.test(\"Response body is an object\", function () {\r",
+									"    pm.expect(pm.response.json()).to.be.an(\"object\");\r",
+									"});\r",
+									"\r",
+									"\r",
+									"// Prueba 3: Compruebe que el tiempo de respuesta es inferior a 1000 ms.\r",
+									"pm.test(\"Response time is less than 1000ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
+									"});\r",
+									"\r",
+									"// Prueba 4: Verificar que la respuesta contiene los campos esperados // Response\r",
+									"pm.test(\"Response contains expected fields\", function () {\r",
+									"    var data = pm.response.json();\r",
+									"     pm.expect(data).to.have.property(\"cliente\");\r",
+									"    pm.expect(data).to.have.property(\"profesional\");\r",
+									"    pm.expect(data).to.have.property(\"servicio\");\r",
+									"    pm.expect(data).to.have.property(\"fecha_hora_inicio\");\r",
+									"    pm.expect(data).to.have.property(\"fecha_hora_final\");\r",
+									"});\r",
+									"\r",
+									"// Prueba 5: Compruebe que el cuerpo de la solicitud y la variable de ruta son correctos\r",
+									"pm.test(\"Request body and path variable are correct\", function () {\r",
+									"    var requestBody = JSON.parse(pm.request.body.raw);\r",
+									"    pm.expect(requestBody).to.have.property(\"clienteId\");\r",
+									"    pm.expect(requestBody).to.have.property(\"profesionalId\");\r",
+									"    pm.expect(requestBody).to.have.property(\"servicioId\");\r",
+									"    pm.expect(requestBody).to.have.property(\"fecha_hora_inicio\");\r",
+									"    pm.expect(requestBody).to.have.property(\"fecha_hora_final\");\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"clienteId\": 1,\r\n  \"profesionalId\": 5,\r\n  \"servicioId\": 1,\r\n  \"fecha_hora_inicio\": \"2023-05-23T19:57:15\",\r\n  \"fecha_hora_final\": \"2023-05-23T19:57:15\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/turnos/:id",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"turnos",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// Prueba 1: Verificar que el código de estado de la respuesta es 200\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"// Prueba 2: Comprueba que el cuerpo de la respuesta está retornando un mensaje\r",
+									"const id = pm.request.url.path[1];\r",
+									"pm.test(\"Response body is empty\", function () {\r",
+									"    pm.expect(pm.response.text()).to.be.eql(\"Se elimino el turno de id: \" + id);\r",
+									"});\r",
+									"\r",
+									"// Prueba 3: Compruebe que el tiempo de respuesta es inferior a 1000 ms.\r",
+									"pm.test(\"Response time is less than 1000ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
+									"});\r",
+									"\r",
+									"// Prueba 4: Verificar que el cuerpo de la petición es vacio\r",
+									"pm.test(\"Request body empty\", function () {\r",
+									"   pm.expect(pm.request.body.raw).to.be.undefined;\r",
+									"});\r",
+									"\r",
+									"// Prueba 5: Comprueba que el método de solicitud es DELETE\r",
+									"pm.test(\"Request method is DELETE\", function () {\r",
+									"    pm.expect(pm.request.method).to.equal(\"DELETE\");\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/turnos/:id",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"turnos",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"testusuario@gmail.com\",\r\n    \"password\": \"testusuario\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/login",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Logout",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiJ9.eyJzdWIiOiIxIiwic2NvcGUiOiJBRE1JTiIsImFwZWxsaWRvIjoiQWRtaW4iLCJyb2xlcyI6IkFETUlOIiwiaXNzIjoiY29tLmxvZi5jb3JyZW9kZW1vIiwiZXhwIjoxNjg1NjI2OTg5LCJpYXQiOjE2ODU1OTA5ODksIm5vbWJyZSI6Ikpvc2UiLCJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSIsImF1dGhvcml0aWVzIjpbIkFETUlOIl19.JsU6O_KPZ7pzHN85HcaaBM03K8QkbutiZ9dKt3NaoXLUs3v0odLqR8cA8pnAoDGLGxm2z53in_YdYypKhwuAO4AbjcuqAZo7A-albknzzqLUv7yKLwTHDgDAkqvEXrf-MPpdqQOYKwpCFy1LHh52x4Emk0jTnV0S1bWE9F4gjyfNEUY0IE1lDn_pHjaqXdZ-e-BRcsuTkc8yQtUw-N2uPA1aMGbgKn2r9Hle-53CYZmHdyztofBIO5ynKX801v4YS3y5v1oxjAJdIzBNYsOfld1iiln3EJndgaWKaEVHm0E9dVHzxJPhW8E01tfMmpCzN1rclh7qFyz-7QcV-6gG10w6G2c1dZbouF2ZEKn0zk-NV6OfGKY7inAZdJ-_9J1rwcsN3T_dcI2qNZgHd8UdG0CWxxiCD1M2Kw6zFbgleKzCgXCqdeb72AyFCFdpOBX60HMwh3QYjgxZu03JkjfjJSW-bqbebAFbAancSNPenyF6DGRiLQwNblWAqJMbRZ6WR9G-DUeVCcXxZx05xObJVYQekslTXExXgH0rDP7tV9okc_txz3CRfbXwWt4oFdtE7e7ARCT5FFD_hHbj9r1f9HU6VwZMoeU5ml07I0j99teUC06UvHEKIgxu1VkmpaPGyMaJO46oY_pZTmMUHmx4rx8GqotR4nzD1i04VPmeNnA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/logout",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"logout"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Stats",
+			"item": [
+				{
+					"name": "Agregar puntación",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiJ9.eyJzdWIiOiI1Iiwic2NvcGUiOiJBRE1JTiIsImFwZWxsaWRvIjoiQWRtaW4iLCJyb2xlcyI6IkFETUlOIiwiaXNzIjoiY29tLmxvZi5jb3JyZW9kZW1vIiwiZXhwIjoxNjg2MjE3OTAyLCJpYXQiOjE2ODYxODE5MDIsIm5vbWJyZSI6Ik1heWUiLCJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSIsImF1dGhvcml0aWVzIjpbIkFETUlOIl19.YY7vq2JTOv7J2ugluDaczuSFPD0Ve821r3V876yHe87r5UEyKmftw2PJygZ4-Z7DSbcOu_7-YzmPchwcEZstLcstazVCfYz55Vn1N2SOMVNm3C_W8kfttSmJlkRpJoKFAqdJHyleqkafbc_X2HrxI_mz8sysCQb3Gotuv7kdYXhb0UnUEHYLp2LXAselve6H6-_wc0RIQRhlRfIG_ESDSdwXUzBufhRjTY57X8uhgFU0X2Vg5e2-yuu2DwOwWEVtcLl_-j_eS5xfHZDaUL7_MEBiR8Zjba1bDIfPTvuJVua-ctCfwyioDnODK6VuNdI1HXjSk6hIHr2z7w3yqHJU5dCaVc0JRwNkPiDmS-xrkrtLvWq9RdVCihYZzWSQDc8ESCXcOz-TdhabkcmK07eVZDViXklwSklbY7XQ1LIaghX5me3wB21ruQAqKmSL_fqONukqiPBE01skFvbY_eMcVIeLVJjkcPLijRR4lPKgmf1Nzn_MTAs9ogTxG4hq0yAvufmKpyRt4-COyok_wY91gZ5nbWY9nKCBlMGqmgTP_1KSX-A8dMHaXZeGVXf62IqyISZY0kxp25fzgU5CKJNIhjqpuh6Q8JAlG0kUcT_Vs-3b6BrYHcOGd6jEPfOmDz_11F-_KZVky1Z--kFEo7DstrJmHD2dBj0XzAhlorGgQdQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"email\": \"admin@gmail.com\",\r\n  \"puntuacion\": 5\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/stats/puntuacion/:servicio_id",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"stats",
+								"puntuacion",
+								":servicio_id"
+							],
+							"variable": [
+								{
+									"key": "servicio_id",
+									"value": "3"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Agregar comentario",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiJ9.eyJzdWIiOiI1Iiwic2NvcGUiOiJBRE1JTiIsImFwZWxsaWRvIjoiQWRtaW4iLCJyb2xlcyI6IkFETUlOIiwiaXNzIjoiY29tLmxvZi5jb3JyZW9kZW1vIiwiZXhwIjoxNjg2MjE3OTAyLCJpYXQiOjE2ODYxODE5MDIsIm5vbWJyZSI6Ik1heWUiLCJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSIsImF1dGhvcml0aWVzIjpbIkFETUlOIl19.YY7vq2JTOv7J2ugluDaczuSFPD0Ve821r3V876yHe87r5UEyKmftw2PJygZ4-Z7DSbcOu_7-YzmPchwcEZstLcstazVCfYz55Vn1N2SOMVNm3C_W8kfttSmJlkRpJoKFAqdJHyleqkafbc_X2HrxI_mz8sysCQb3Gotuv7kdYXhb0UnUEHYLp2LXAselve6H6-_wc0RIQRhlRfIG_ESDSdwXUzBufhRjTY57X8uhgFU0X2Vg5e2-yuu2DwOwWEVtcLl_-j_eS5xfHZDaUL7_MEBiR8Zjba1bDIfPTvuJVua-ctCfwyioDnODK6VuNdI1HXjSk6hIHr2z7w3yqHJU5dCaVc0JRwNkPiDmS-xrkrtLvWq9RdVCihYZzWSQDc8ESCXcOz-TdhabkcmK07eVZDViXklwSklbY7XQ1LIaghX5me3wB21ruQAqKmSL_fqONukqiPBE01skFvbY_eMcVIeLVJjkcPLijRR4lPKgmf1Nzn_MTAs9ogTxG4hq0yAvufmKpyRt4-COyok_wY91gZ5nbWY9nKCBlMGqmgTP_1KSX-A8dMHaXZeGVXf62IqyISZY0kxp25fzgU5CKJNIhjqpuh6Q8JAlG0kUcT_Vs-3b6BrYHcOGd6jEPfOmDz_11F-_KZVky1Z--kFEo7DstrJmHD2dBj0XzAhlorGgQdQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"email\": \"admin@gmail.com\",\r\n  \"comentario\": \"ME ENCANTA!! Se lo recomiendo a todos los que lean este mensaje!\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/stats/comentario/:servicio_id",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"stats",
+								"comentario",
+								":servicio_id"
+							],
+							"variable": [
+								{
+									"key": "servicio_id",
+									"value": "3"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Eliminar comentario",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiJ9.eyJzdWIiOiI1Iiwic2NvcGUiOiJBRE1JTiIsImFwZWxsaWRvIjoiQWRtaW4iLCJyb2xlcyI6IkFETUlOIiwiaXNzIjoiY29tLmxvZi5jb3JyZW9kZW1vIiwiZXhwIjoxNjg2MjE3OTAyLCJpYXQiOjE2ODYxODE5MDIsIm5vbWJyZSI6Ik1heWUiLCJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSIsImF1dGhvcml0aWVzIjpbIkFETUlOIl19.YY7vq2JTOv7J2ugluDaczuSFPD0Ve821r3V876yHe87r5UEyKmftw2PJygZ4-Z7DSbcOu_7-YzmPchwcEZstLcstazVCfYz55Vn1N2SOMVNm3C_W8kfttSmJlkRpJoKFAqdJHyleqkafbc_X2HrxI_mz8sysCQb3Gotuv7kdYXhb0UnUEHYLp2LXAselve6H6-_wc0RIQRhlRfIG_ESDSdwXUzBufhRjTY57X8uhgFU0X2Vg5e2-yuu2DwOwWEVtcLl_-j_eS5xfHZDaUL7_MEBiR8Zjba1bDIfPTvuJVua-ctCfwyioDnODK6VuNdI1HXjSk6hIHr2z7w3yqHJU5dCaVc0JRwNkPiDmS-xrkrtLvWq9RdVCihYZzWSQDc8ESCXcOz-TdhabkcmK07eVZDViXklwSklbY7XQ1LIaghX5me3wB21ruQAqKmSL_fqONukqiPBE01skFvbY_eMcVIeLVJjkcPLijRR4lPKgmf1Nzn_MTAs9ogTxG4hq0yAvufmKpyRt4-COyok_wY91gZ5nbWY9nKCBlMGqmgTP_1KSX-A8dMHaXZeGVXf62IqyISZY0kxp25fzgU5CKJNIhjqpuh6Q8JAlG0kUcT_Vs-3b6BrYHcOGd6jEPfOmDz_11F-_KZVky1Z--kFEo7DstrJmHD2dBj0XzAhlorGgQdQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"email\": \"admin@gmail.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/stats/comentario/:servicio_id",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"stats",
+								"comentario",
+								":servicio_id"
+							],
+							"variable": [
+								{
+									"key": "servicio_id",
+									"value": "3"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Marcar Favorito",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiJ9.eyJzdWIiOiI1Iiwic2NvcGUiOiJBRE1JTiIsImFwZWxsaWRvIjoiQWRtaW4iLCJyb2xlcyI6IkFETUlOIiwiaXNzIjoiY29tLmxvZi5jb3JyZW9kZW1vIiwiZXhwIjoxNjg2MjE3OTAyLCJpYXQiOjE2ODYxODE5MDIsIm5vbWJyZSI6Ik1heWUiLCJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSIsImF1dGhvcml0aWVzIjpbIkFETUlOIl19.YY7vq2JTOv7J2ugluDaczuSFPD0Ve821r3V876yHe87r5UEyKmftw2PJygZ4-Z7DSbcOu_7-YzmPchwcEZstLcstazVCfYz55Vn1N2SOMVNm3C_W8kfttSmJlkRpJoKFAqdJHyleqkafbc_X2HrxI_mz8sysCQb3Gotuv7kdYXhb0UnUEHYLp2LXAselve6H6-_wc0RIQRhlRfIG_ESDSdwXUzBufhRjTY57X8uhgFU0X2Vg5e2-yuu2DwOwWEVtcLl_-j_eS5xfHZDaUL7_MEBiR8Zjba1bDIfPTvuJVua-ctCfwyioDnODK6VuNdI1HXjSk6hIHr2z7w3yqHJU5dCaVc0JRwNkPiDmS-xrkrtLvWq9RdVCihYZzWSQDc8ESCXcOz-TdhabkcmK07eVZDViXklwSklbY7XQ1LIaghX5me3wB21ruQAqKmSL_fqONukqiPBE01skFvbY_eMcVIeLVJjkcPLijRR4lPKgmf1Nzn_MTAs9ogTxG4hq0yAvufmKpyRt4-COyok_wY91gZ5nbWY9nKCBlMGqmgTP_1KSX-A8dMHaXZeGVXf62IqyISZY0kxp25fzgU5CKJNIhjqpuh6Q8JAlG0kUcT_Vs-3b6BrYHcOGd6jEPfOmDz_11F-_KZVky1Z--kFEo7DstrJmHD2dBj0XzAhlorGgQdQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"email\": \"admin@gmail.com\",\r\n  \"favorito\": true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/stats/marcarfavorito/:servicio_id",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"stats",
+								"marcarfavorito",
+								":servicio_id"
+							],
+							"variable": [
+								{
+									"key": "servicio_id",
+									"value": "3"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Ubicacion",
+			"item": [
+				{
+					"name": "Find All",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "Find By Ciudad",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

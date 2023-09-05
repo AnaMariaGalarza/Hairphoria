@@ -1,0 +1,88 @@
+.infoProfile {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.infoProfile h2 {
+    align-self: flex-start;
+    margin-left: 26%;
+    margin-bottom: 1%;
+}
+
+.headerContainer {
+    display: flex;
+    align-items: center;
+    border: 1px solid var(--color-primary-7);
+    border-radius: 15px;
+    padding: 1%;
+    width: 50%;
+}
+
+.headerContent {
+    display: flex;
+    flex-direction: column;
+    margin: 3%;
+    justify-self: flex-start;
+}
+
+.iconLetters {
+    width: 6rem;
+    height: 6rem;
+    background-color: var(--color-primary-4);
+    color: var(--color-primary-9);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    cursor: pointer;
+}
+
+.sectionPersonal {
+    display: grid;
+    grid-template-columns: 2fr 2fr;
+    border: 1px solid var(--color-primary-7);
+    border-radius: 15px;
+    padding: 2%;
+    width: 50%;
+}
+
+.itemProfile {
+    margin-bottom: 4%;
+}
+
+.sectionLabel {
+    font-weight: 600;
+    padding: 2%;
+}
+.sectionResponse {
+    padding: 2%;
+    background-color: var(--color-primary-8);
+    border-radius: 10px;
+    margin: 1%;
+}
+
+@media screen and (min-width: 481px) and (max-width: 1024px) {
+    .headerContainer, .sectionPersonal {
+        width: 80%;
+    }
+}
+
+@media screen and (max-width: 480px)  {
+    .headerContainer, .sectionPersonal {
+        width: 74%;
+    }
+    .infoProfile h2 {
+        margin-left: 15%;
+    }
+    .iconLetters {
+        width: 4rem;
+        height: 4rem;
+        font-size: 1.5rem;
+    }
+    .sectionPersonal {
+        grid-template-columns: 1fr;
+    }
+}

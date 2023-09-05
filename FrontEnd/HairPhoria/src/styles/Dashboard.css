@@ -1,0 +1,264 @@
+.container {
+    position: relative;
+    width: 100%;
+}
+
+.sideBar {
+    position: fixed;
+    width: 300px;
+    height: 100%;
+    background-color: var(--color-primary-0);
+    border-left: 10px solid var(--color-primary-0);
+    transition: .5s;
+    overflow: hidden;
+}
+
+.sideBar.active {
+    width: 80px;
+}
+
+.sideBar ul {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+
+.sideBar ul li {
+    position: relative;
+    width: 100%;
+    list-style: none;
+    border-top-left-radius: 30px;
+    border-bottom-left-radius: 30px;
+}
+
+.sideBar ul li:hover,
+.sideBar ul li.hovered {
+    background-color: var(--color-primary-9);
+}
+
+.sideBar ul li:nth-child(1) {
+    margin-bottom: 40px;
+    pointer-events: none;
+}
+
+.sideBar ul li a {
+    position: relative;
+    display: block;
+    width: 100%;
+    display: flex;
+    text-decoration: none;
+    color: var(--color-primary-9);
+}
+
+.sideBar ul li:hover a,
+.sideBar ul li.hovered a {
+    color: var(--color-primary-4);
+}
+
+.sideBar ul li a .iconBar {
+    position: relative;
+    display: block;
+    min-width: 60px;
+    height: 60px;
+    line-height: 60px;
+    text-align: center;
+}
+
+.sideBar ul li a .iconBar svg {
+    font-size: 25px;
+}
+
+.sideBar ul li a .titleBar {
+    position: relative;
+    display: block;
+    padding: 0 10px;
+    height: 60px;
+    line-height: 60px;
+    text-align: start;
+    white-space: nowrap;
+}
+
+.sideBar ul li:hover a::before,
+.sideBar ul li.hovered a::before {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: -50px;
+    width: 50px;
+    height: 50px;
+    background-color: transparent;
+    border-radius: 50%;
+    box-shadow: 35px 35px 0 10px var(--color-primary-9);
+    pointer-events: none;
+}
+
+.sideBar ul li:hover a::after,
+.sideBar ul li.hovered a::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    bottom: -50px;
+    width: 50px;
+    height: 50px;
+    background-color: transparent;
+    border-radius: 50%;
+    box-shadow: 35px -35px 0 10px var(--color-primary-9);
+    pointer-events: none;
+}
+
+.mainBar {
+    position: fixed;
+    width: calc(100% - 300px);
+    left: 300px;
+    background-color: var(--color-primary-9);
+    transition: .5s;
+}
+
+.mainBar-content {
+    max-height: 562px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    flex-grow: 1;
+    margin: .9%;
+}
+
+.mainBar-content::-webkit-scrollbar {
+    width: .3rem;
+}
+
+.mainBar-content::-webkit-scrollbar-track {
+    background-color: var(--color-primary-8);
+}
+
+.mainBar-content::-webkit-scrollbar-thumb {
+    background-color: var(--color-primary-4);
+}
+
+.mainBar-content::-webkit-scrollbar-thumb:hover {
+    background-color: var(--color-primary-0);
+}
+
+.mainBar.active {
+    width: calc(100% - 80px);
+    left: 80px;
+}
+
+.topBar {
+    width: 100%;
+    height: 60px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 0 10px;
+}
+
+.toggleBar {
+    position: absolute;
+    top: 0;
+    right: 1px;
+    left: 1px;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2.5rem;
+    color: var(--color-primary-0);
+    cursor: pointer;
+    z-index: 4;
+}
+
+.toggleBar svg {
+    font-size: 1.5rem;
+}
+
+.closeSideBar {
+    display: none;
+}
+
+.searchDashboard {
+    position: relative;
+    width: 400px;
+    margin: 0 10px;
+    align-self: center;
+}
+
+.searchDashboard label {
+    position: relative;
+    width: 100%;
+}
+
+.searchDashboard label input {
+    width: 100%;
+    height: 40px;
+    border-radius: 10px;
+    padding: 5px 20px;
+    padding-left: 40px;
+    font-size: 16px;
+    outline: none;
+    border: .1px solid var(--color-primary-7);
+}
+
+.searchDashboard label svg {
+    position: absolute;
+    top: 0;
+    left: 12px;
+    font-size: 17px;
+    opacity: .5;
+}
+
+
+@media (max-width: 991px) {
+    .sideBar {
+        left: -300px;
+    }
+
+    .sideBar.active {
+        width: 300px;
+        left: 0;
+    }
+
+    .mainBar {
+        width: 100%;
+        left: 0;
+    }
+
+    .mainBar.active {
+        left: 300px;
+    }
+}
+
+@media (max-width: 768px) {
+    .sideBar {
+        width: 100%;
+        left: -100%;
+        z-index: 100;
+    }
+
+    .sideBar.active {
+        width: 100%;
+        left: 20;
+    }
+
+    .closeSideBar {
+        position: absolute;
+        top: 0;
+        right: 10px;
+        width: 60px;
+        height: 60px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 2.5rem;
+        color: var(--color-primary-9);
+        cursor: pointer;
+        z-index: 4;
+    }
+
+    .closeSideBar svg {
+        font-size: 1.5rem;
+    }
+    
+
+}

@@ -1,0 +1,159 @@
+.header {
+  height: 100px;
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  background-color: var(--color-primary-0);
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  padding: 0px 30px;
+}
+
+.iconMenu,
+.iconClose {
+  display: none;
+}
+
+.link {
+  align-items: center;
+  display: flex;
+  width: 300px;
+  flex-shrink: 0;
+}
+
+.logo {
+  align-items: center;
+  display: flex;
+}
+
+.logo a {
+  text-decoration: none;
+}
+
+.slogan {
+  color: var(--color-primary-2);
+  font-size: 12px;
+  border-left: 1px solid var(--color-primary-3);
+  height: 30px;
+  margin-left: 5%;
+  padding-left: 20px;
+  display: flex;
+  align-items: center;
+}
+
+.imgLogo {
+  width: 100px;
+  height: 100px;
+}
+
+.logIn button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  background-color: var(--color-primary-4);
+  color: var(--color-primary-1);
+  cursor: pointer;
+}
+
+.logIn {
+  display: flex;
+  gap: 10px;
+}
+
+.logIn button:hover {
+  border: 1px solid var(--color-primary-9);
+}
+
+.seeProfile, .profileLogIn {
+  color: var(--color-primary-9);
+}
+
+.containerImg {
+  background-color: var(--color-primary-9);
+  color: var(--color-primary-0);
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+}
+
+
+/* tablet */
+@media screen and (min-width: 481px) and (max-width: 1024px)  {
+
+  .logIn button {
+    width: 90px;
+    height: 30px;
+    border-radius: 3px;
+    font-size: 9px;
+    margin-bottom: 5px;
+  }
+
+}
+
+/* telefono */
+@media screen and (max-width: 480px) {
+
+  .imgLogo {
+    width: 50px;
+    height: 50px;
+  }
+
+  .slogan {
+    font-size: 10px;
+  }
+
+  .iconMenu, .iconClose {
+    display: flex;
+    color: var(--color-primary-2);
+    cursor: pointer;
+  }
+
+  .logIn {
+    width: 100vw;
+    left: 0;
+    position: absolute;
+    top: -700%;
+    justify-content: center;
+    flex-direction: column;
+    background-color: var(--color-primary-0);
+    transition: 0.5s all ease-in;
+
+  }
+
+  .logIn.leftChange {
+    top: 100%;
+  }
+  
+  .logIn button {
+    font-size: 10px;
+    width: 100%;
+    background-color: var(--color-primary-0);
+  }
+ 
+  .link {
+    width: 250px;
+  }
+
+  .logIn button:hover {
+    text-decoration: underline;
+    border: none;
+  }
+
+  .profileLogIn {
+    max-width: 5vh;
+    font-size: .5rem;
+    text-align: right;
+  }
+
+  .profileLogIn .containerImg {
+    font-size: .8rem;
+    margin: .2rem;
+  }
+
+}

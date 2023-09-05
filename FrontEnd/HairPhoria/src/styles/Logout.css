@@ -1,0 +1,65 @@
+.logoutPage {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 70vh;
+}
+
+.logoutContainer {
+    max-width: 60vh;
+    padding: 2rem;
+    border-radius: 1rem;
+    
+    background-color: var(--color-primary-9);
+    text-align: center;
+    opacity: .9;
+}
+
+.logoutButtons button {
+    margin: 1rem;
+    background-color: var(--color-primary-4);
+    color: var(--color-primary-9);
+    padding: .5rem;
+    border: none;
+    border-radius: .4rem;
+    cursor: pointer;
+}
+
+.logoutButtons button:nth-child(2) {
+    background-color: var(--color-primary-9);
+    color: var(--color-primary-4);
+    border: .1rem solid var(--color-primary-4);
+}
+
+.logoutButtons button:nth-child(1):hover {
+    background-color: var(--color-primary-0);
+}
+
+.logoutButtons button:nth-child(2):hover {
+    border: .1rem solid var(--color-primary-0);
+    color: var(--color-primary-0);
+}
+
+.logoutPage {
+    position: relative;
+}
+
+.figura {
+    position: absolute;
+    background-color: var(--color-primary-4);
+    width: 13rem;
+    height: 13rem;
+    border-radius: 50%;
+    z-index: -15;
+    opacity: .1;
+}
+
+.figura:nth-child(1) {
+    top: 10rem;
+    left: 12rem;
+}
+
+.figura:nth-child(2) {
+    top: 2rem;
+    right: 13rem;
+}

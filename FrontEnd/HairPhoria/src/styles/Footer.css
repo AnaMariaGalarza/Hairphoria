@@ -1,0 +1,42 @@
+.footerContainer {
+    background-color: var(--color-primary-4 );
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0px 35px;
+    position: absolute;
+    bottom: 0;
+}
+
+.logoCreditos {
+    display: flex;
+    align-items: center;
+
+}
+
+.logoCreditos span {
+    color: var(--color-primary-2);
+    margin-left: 20px;
+}
+
+.logo {
+    width: 70px;
+    height: 70px;
+}
+
+.socialMedia img{
+    width: 30px;
+    justify-self: flex-end;
+    cursor: pointer;
+}
+.selected {
+    background-color: var(--color-primary-0);
+    color: var(--color-primary-9);
+    border-radius: 8px;
+  }
+  
+  .select:hover {
+    color:var(--color-primary-4);
+    z-index: 999
+  }

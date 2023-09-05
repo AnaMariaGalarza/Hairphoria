@@ -1,0 +1,55 @@
+.headerContainer {
+  position: relative;
+}
+
+.videoContainer {
+  position: relative;
+  height: 50vh;
+  overflow: hidden;
+}
+
+.video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.opacidad {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(232, 212, 212, 0.283);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/* tablet */
+@media (max-width: 768px) {
+  .videoContainer {
+    height: 40vh;
+  }
+}
+
+
+/* telefono */
+@media (max-width: 499px) {
+  .videoContainer {
+    height: 60vh;
+  }
+}
+
+
+
+
+

@@ -1,0 +1,44 @@
+.containerComments {
+    margin: 5%;
+    padding: 2%;
+    box-shadow: 4px 4px 15px var(--color-primary-7);
+    border-radius: 10px;
+    max-height: 30vh;
+    
+    overflow: hidden;
+    overflow-y: auto;
+    
+}
+
+.containerComments::-webkit-scrollbar {
+    width: .3rem;
+}
+
+.containerComments::-webkit-scrollbar-track {
+    background-color: var(--color-primary-8);
+}
+
+.containerComments::-webkit-scrollbar-thumb {
+    background-color: var(--color-primary-4);
+}
+
+.containerComments::-webkit-scrollbar-thumb:hover {
+    background-color: var(--color-primary-0);
+}
+
+.comentarios-description {
+    margin: 2%;
+    padding: 4%;
+    box-shadow: 4px 4px 15px var(--color-primary-7);
+    border-radius: 10px;
+    max-height: 20vh;
+}
+
+
+@media (max-width: 768px) {
+    .infoComment {
+        font-size: .8rem;
+    }
+}
+
+@media (max-width: 517px) {}

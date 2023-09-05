@@ -1,0 +1,19 @@
+.bienvenido {
+    color: var(--color-primary-4);
+    font-size: 24px;
+    margin: 10px;
+    text-align: center;
+    justify-content: center;
+  }
+
+  .registrate{
+    font-size: 20px;
+    font-weight:bolder;
+    margin-top: 10px;
+    cursor: pointer;
+    color: var(--color-primary-4);
+}
+
+.registrate:hover {
+    color: var(--color-primary-0);
+}

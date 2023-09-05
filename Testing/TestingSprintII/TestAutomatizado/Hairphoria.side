@@ -1,0 +1,630 @@
+{
+  "id": "0a509c53-0d5d-44be-b7c8-50a13f48c307",
+  "version": "2.0",
+  "name": "Hairphoria",
+  "url": "http://s3-hairphoria-front.s3-website.us-east-2.amazonaws.com/",
+  "tests": [{
+    "id": "8c9d775f-da22-4419-8560-8975ca994876",
+    "name": "Registro de usuario",
+    "commands": [{
+      "id": "fc3b9fe2-d3db-434c-a0a9-c56e2126f6de",
+      "comment": "",
+      "command": "open",
+      "target": "http://s3-hairphoria-front.s3-website.us-east-2.amazonaws.com/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "9898d80d-0b40-4071-acdf-60d632737910",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1280x672",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "bade00d7-693a-4c4c-81f0-0026b7b608e4",
+      "comment": "",
+      "command": "click",
+      "target": "css=.logIn > button",
+      "targets": [
+        ["css=.logIn > button", "css:finder"],
+        ["xpath=//div[@id='root']/div/div[2]/button", "xpath:idRelative"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Crear cuenta')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "8de6c2fc-f2a6-4c00-a073-a304cea70252",
+      "comment": "",
+      "command": "click",
+      "target": "id=name",
+      "targets": [
+        ["id=name", "id"],
+        ["name=name", "name"],
+        ["css=#name", "css:finder"],
+        ["xpath=//input[@id='name']", "xpath:attributes"],
+        ["xpath=//div[@id='root']/div[2]/div/form/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "66b32a29-e4b7-4da7-8b08-449433bd56d0",
+      "comment": "",
+      "command": "type",
+      "target": "id=name",
+      "targets": [
+        ["id=name", "id"],
+        ["name=name", "name"],
+        ["css=#name", "css:finder"],
+        ["xpath=//input[@id='name']", "xpath:attributes"],
+        ["xpath=//div[@id='root']/div[2]/div/form/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "Yohana "
+    }, {
+      "id": "d82dc059-695e-4e66-9645-bb019682b984",
+      "comment": "",
+      "command": "click",
+      "target": "id=lastName",
+      "targets": [
+        ["id=lastName", "id"],
+        ["name=lastName", "name"],
+        ["css=#lastName", "css:finder"],
+        ["xpath=//input[@id='lastName']", "xpath:attributes"],
+        ["xpath=//div[@id='root']/div[2]/div/form/input[2]", "xpath:idRelative"],
+        ["xpath=//input[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "742aa0c0-a4b3-4a72-a49b-d86d4e8147bb",
+      "comment": "",
+      "command": "type",
+      "target": "id=lastName",
+      "targets": [
+        ["id=lastName", "id"],
+        ["name=lastName", "name"],
+        ["css=#lastName", "css:finder"],
+        ["xpath=//input[@id='lastName']", "xpath:attributes"],
+        ["xpath=//div[@id='root']/div[2]/div/form/input[2]", "xpath:idRelative"],
+        ["xpath=//input[2]", "xpath:position"]
+      ],
+      "value": "Zapata"
+    }, {
+      "id": "66b3f002-4416-4b63-b574-e878a08699b9",
+      "comment": "",
+      "command": "click",
+      "target": "id=documento",
+      "targets": [
+        ["id=documento", "id"],
+        ["name=documento", "name"],
+        ["css=#documento", "css:finder"],
+        ["xpath=//input[@id='documento']", "xpath:attributes"],
+        ["xpath=//div[@id='root']/div[2]/div/form/input[3]", "xpath:idRelative"],
+        ["xpath=//input[3]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "da133412-093b-45ef-b9b0-e361e92f206c",
+      "comment": "",
+      "command": "type",
+      "target": "id=documento",
+      "targets": [
+        ["id=documento", "id"],
+        ["name=documento", "name"],
+        ["css=#documento", "css:finder"],
+        ["xpath=//input[@id='documento']", "xpath:attributes"],
+        ["xpath=//div[@id='root']/div[2]/div/form/input[3]", "xpath:idRelative"],
+        ["xpath=//input[3]", "xpath:position"]
+      ],
+      "value": "1130681593"
+    }, {
+      "id": "7293c6e1-a21e-4136-a7a8-154b9a5c386b",
+      "comment": "",
+      "command": "click",
+      "target": "id=email",
+      "targets": [
+        ["id=email", "id"],
+        ["name=email", "name"],
+        ["css=#email", "css:finder"],
+        ["xpath=//input[@id='email']", "xpath:attributes"],
+        ["xpath=//div[@id='root']/div[2]/div/form/input[4]", "xpath:idRelative"],
+        ["xpath=//input[4]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "504d5a2f-0b0e-41d6-9ac7-132760557793",
+      "comment": "",
+      "command": "type",
+      "target": "id=email",
+      "targets": [
+        ["id=email", "id"],
+        ["name=email", "name"],
+        ["css=#email", "css:finder"],
+        ["xpath=//input[@id='email']", "xpath:attributes"],
+        ["xpath=//div[@id='root']/div[2]/div/form/input[4]", "xpath:idRelative"],
+        ["xpath=//input[4]", "xpath:position"]
+      ],
+      "value": "yohasjk2@hotmail.com"
+    }, {
+      "id": "9d686157-e3df-4934-9bb7-d2a12f0840a4",
+      "comment": "",
+      "command": "click",
+      "target": "id=password",
+      "targets": [
+        ["id=password", "id"],
+        ["name=password", "name"],
+        ["css=#password", "css:finder"],
+        ["xpath=//input[@id='password']", "xpath:attributes"],
+        ["xpath=//div[@id='root']/div[2]/div/form/input[5]", "xpath:idRelative"],
+        ["xpath=//input[5]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "024399dd-69eb-46fa-a2ee-08fa00f4bfe0",
+      "comment": "",
+      "command": "type",
+      "target": "id=password",
+      "targets": [
+        ["id=password", "id"],
+        ["name=password", "name"],
+        ["css=#password", "css:finder"],
+        ["xpath=//input[@id='password']", "xpath:attributes"],
+        ["xpath=//div[@id='root']/div[2]/div/form/input[5]", "xpath:idRelative"],
+        ["xpath=//input[5]", "xpath:position"]
+      ],
+      "value": "123456"
+    }, {
+      "id": "f380ebbe-688f-4931-a467-6f7bacc32e3c",
+      "comment": "",
+      "command": "click",
+      "target": "id=passwordconfirm",
+      "targets": [
+        ["id=passwordconfirm", "id"],
+        ["name=passwordconfirm", "name"],
+        ["css=#passwordconfirm", "css:finder"],
+        ["xpath=//input[@id='passwordconfirm']", "xpath:attributes"],
+        ["xpath=//div[@id='root']/div[2]/div/form/input[6]", "xpath:idRelative"],
+        ["xpath=//input[6]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "e4796026-f8ef-4b7a-b42c-b791b138fa1a",
+      "comment": "",
+      "command": "type",
+      "target": "id=passwordconfirm",
+      "targets": [
+        ["id=passwordconfirm", "id"],
+        ["name=passwordconfirm", "name"],
+        ["css=#passwordconfirm", "css:finder"],
+        ["xpath=//input[@id='passwordconfirm']", "xpath:attributes"],
+        ["xpath=//div[@id='root']/div[2]/div/form/input[6]", "xpath:idRelative"],
+        ["xpath=//input[6]", "xpath:position"]
+      ],
+      "value": "123456"
+    }, {
+      "id": "ff460969-e851-47e8-b058-ee072ca1b0c9",
+      "comment": "",
+      "command": "click",
+      "target": "css=.containerFormRegister",
+      "targets": [
+        ["css=.containerFormRegister", "css:finder"],
+        ["xpath=//div[@id='root']/div[2]/div/form", "xpath:idRelative"],
+        ["xpath=//form", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "243dceb0-d52e-4624-9d7c-ba0b6ecf6a34",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn-submit",
+      "targets": [
+        ["css=.btn-submit", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//div[@id='root']/div[2]/div/form/div/button", "xpath:idRelative"],
+        ["xpath=//form/div/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Registrarme')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "a901e247-4775-47b7-a08d-5644cb85f3c3",
+      "comment": "",
+      "command": "click",
+      "target": "css=.swal-button",
+      "targets": [
+        ["css=.swal-button", "css:finder"],
+        ["xpath=//div[4]/div/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Aceptar')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "bb7ceedb-c360-4ac9-b5fe-8cffbef9f2ac",
+    "name": "Logeo de usuario ",
+    "commands": [{
+      "id": "f9e76586-66ba-45fc-beaa-1ac017a9a7b0",
+      "comment": "",
+      "command": "open",
+      "target": "http://s3-hairphoria-front.s3-website.us-east-2.amazonaws.com/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "4b6ea55e-38e3-4c9a-81ec-beabd94218b3",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1280x672",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "28967ee3-b5c6-47ee-8c0d-13e46c35b726",
+      "comment": "",
+      "command": "click",
+      "target": "css=a > button",
+      "targets": [
+        ["css=a > button", "css:finder"],
+        ["xpath=//div[@id='root']/div/div[2]/a/button", "xpath:idRelative"],
+        ["xpath=//a/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Iniciar sesión')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "13263aa3-4f95-43e6-af5b-4760c7fac6d8",
+      "comment": "",
+      "command": "click",
+      "target": "id=email",
+      "targets": [
+        ["id=email", "id"],
+        ["name=email", "name"],
+        ["css=#email", "css:finder"],
+        ["xpath=//input[@id='email']", "xpath:attributes"],
+        ["xpath=//div[@id='root']/div[2]/div/form/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "1e4c5e9e-5662-499a-85ae-9b2bf2aa7d66",
+      "comment": "",
+      "command": "type",
+      "target": "id=email",
+      "targets": [
+        ["id=email", "id"],
+        ["name=email", "name"],
+        ["css=#email", "css:finder"],
+        ["xpath=//input[@id='email']", "xpath:attributes"],
+        ["xpath=//div[@id='root']/div[2]/div/form/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "admin@gmail.com"
+    }, {
+      "id": "d9b95bee-8b07-4e2f-9988-dc221ad346ed",
+      "comment": "",
+      "command": "click",
+      "target": "id=password",
+      "targets": [
+        ["id=password", "id"],
+        ["name=password", "name"],
+        ["css=#password", "css:finder"],
+        ["xpath=//input[@id='password']", "xpath:attributes"],
+        ["xpath=//div[@id='root']/div[2]/div/form/input[2]", "xpath:idRelative"],
+        ["xpath=//input[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "570ef899-c172-42dd-b605-353d20261196",
+      "comment": "",
+      "command": "type",
+      "target": "id=password",
+      "targets": [
+        ["id=password", "id"],
+        ["name=password", "name"],
+        ["css=#password", "css:finder"],
+        ["xpath=//input[@id='password']", "xpath:attributes"],
+        ["xpath=//div[@id='root']/div[2]/div/form/input[2]", "xpath:idRelative"],
+        ["xpath=//input[2]", "xpath:position"]
+      ],
+      "value": "admin"
+    }, {
+      "id": "01a521a4-30de-4a7e-8155-8e5e9f78aa0d",
+      "comment": "",
+      "command": "click",
+      "target": "css=.buttonLogIn",
+      "targets": [
+        ["css=.buttonLogIn", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//div[@id='root']/div[2]/div/form/button", "xpath:idRelative"],
+        ["xpath=//form/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Ingresar')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "b3b13351-ffe5-4cc9-a6a5-63b869c61f93",
+      "comment": "",
+      "command": "click",
+      "target": "id=password",
+      "targets": [
+        ["id=password", "id"],
+        ["name=password", "name"],
+        ["css=#password", "css:finder"],
+        ["xpath=//input[@id='password']", "xpath:attributes"],
+        ["xpath=//div[@id='root']/div[2]/div/form/input[2]", "xpath:idRelative"],
+        ["xpath=//input[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "e9e875a9-f8d0-4cf6-8ec4-104659d4c2bc",
+      "comment": "",
+      "command": "click",
+      "target": "css=.buttonLogIn > font > font",
+      "targets": [
+        ["css=.buttonLogIn > font > font", "css:finder"],
+        ["xpath=//div[@id='root']/div[2]/div/form/button/font/font", "xpath:idRelative"],
+        ["xpath=//form/button/font/font", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "46b52947-4b48-45ad-92f3-de6fa8a8ec22",
+      "comment": "",
+      "command": "click",
+      "target": "css=.buttonLogIn > font > font",
+      "targets": [
+        ["css=.buttonLogIn > font > font", "css:finder"],
+        ["xpath=//div[@id='root']/div[2]/div/form/button/font/font", "xpath:idRelative"],
+        ["xpath=//form/button/font/font", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "e20c2a6d-1187-4499-ab86-ad161b22d5c5",
+      "comment": "",
+      "command": "click",
+      "target": "id=email",
+      "targets": [
+        ["id=email", "id"],
+        ["name=email", "name"],
+        ["css=#email", "css:finder"],
+        ["xpath=//input[@id='email']", "xpath:attributes"],
+        ["xpath=//div[@id='root']/div[2]/div/form/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "2891ae85-c69e-4379-b39a-b0a50d77d6d5",
+      "comment": "",
+      "command": "type",
+      "target": "id=email",
+      "targets": [
+        ["id=email", "id"],
+        ["name=email", "name"],
+        ["css=#email", "css:finder"],
+        ["xpath=//input[@id='email']", "xpath:attributes"],
+        ["xpath=//div[@id='root']/div[2]/div/form/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "user@gmail.com"
+    }, {
+      "id": "d093b4d2-3a67-4fed-b57e-d63dc8c70457",
+      "comment": "",
+      "command": "click",
+      "target": "css=label:nth-child(7)",
+      "targets": [
+        ["css=label:nth-child(7)", "css:finder"],
+        ["xpath=//div[@id='root']/div[2]/div/form/label[2]", "xpath:idRelative"],
+        ["xpath=//label[2]", "xpath:position"],
+        ["xpath=//label[contains(.,' Contrasena')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "998c54e9-63b3-4ce3-8fb3-3971b9887ab1",
+      "comment": "",
+      "command": "click",
+      "target": "id=password",
+      "targets": [
+        ["id=password", "id"],
+        ["name=password", "name"],
+        ["css=#password", "css:finder"],
+        ["xpath=//input[@id='password']", "xpath:attributes"],
+        ["xpath=//div[@id='root']/div[2]/div/form/input[2]", "xpath:idRelative"],
+        ["xpath=//input[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "a92f408a-79fa-4a63-86ed-dd6b54711e05",
+      "comment": "",
+      "command": "click",
+      "target": "css=.buttonLogIn > font > font",
+      "targets": [
+        ["css=.buttonLogIn > font > font", "css:finder"],
+        ["xpath=//div[@id='root']/div[2]/div/form/button/font/font", "xpath:idRelative"],
+        ["xpath=//form/button/font/font", "xpath:position"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "2cb7f539-c8a7-49d9-9cee-6df35ba349e6",
+    "name": "Ver Servicios",
+    "commands": [{
+      "id": "820a3286-c8b6-44e9-9bc8-27d960a4c88d",
+      "comment": "",
+      "command": "open",
+      "target": "http://s3-hairphoria-front.s3-website.us-east-2.amazonaws.com/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "57f249d3-ae33-4170-b292-c2d0bf3b2178",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1280x672",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "7b62febc-fff8-4fb7-8174-aa43f286ad99",
+      "comment": "",
+      "command": "click",
+      "target": "css=.imgLogo",
+      "targets": [
+        ["css=.imgLogo", "css:finder"],
+        ["xpath=//img[@alt='logo HairPhobia']", "xpath:img"],
+        ["xpath=//div[@id='root']/div/div/a/img", "xpath:idRelative"],
+        ["xpath=//img", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "706a288a-c76c-4b3b-8d35-2b81dbb9ae99",
+      "comment": "",
+      "command": "click",
+      "target": "css=.cardCategoria:nth-child(1) .img",
+      "targets": [
+        ["css=.cardCategoria:nth-child(1) .img", "css:finder"],
+        ["xpath=//img[@alt='imagen categoría']", "xpath:img"],
+        ["xpath=//div[@id='root']/div[3]/div/a/img", "xpath:idRelative"],
+        ["xpath=//div[3]/div/a/img", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "06940358-7762-4419-804f-13719e1867c2",
+      "comment": "",
+      "command": "click",
+      "target": "css=.card:nth-child(1) .img",
+      "targets": [
+        ["css=.card:nth-child(1) .img", "css:finder"],
+        ["xpath=//img[@alt='imagen Recommended']", "xpath:img"],
+        ["xpath=//div[@id='root']/div[3]/div/div/a/img", "xpath:idRelative"],
+        ["xpath=//div[3]/div/div/a/img", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "b13ecd10-d843-4ee5-98ca-b21affd3af53",
+      "comment": "",
+      "command": "click",
+      "target": "css=.button-span",
+      "targets": [
+        ["css=.button-span", "css:finder"],
+        ["xpath=//div[@id='root']/div[2]/div/div/div/div[4]/span", "xpath:idRelative"],
+        ["xpath=//div[4]/span", "xpath:position"],
+        ["xpath=//span[contains(.,'Ver más')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "38a76eb3-cd35-4dac-b128-c965b15b5b1d",
+      "comment": "",
+      "command": "click",
+      "target": "css=.modal-right",
+      "targets": [
+        ["css=.modal-right", "css:finder"],
+        ["xpath=//div[@id='root']/div[2]/div[3]/div/button[3]", "xpath:idRelative"],
+        ["xpath=//button[3]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "925ada44-cf98-47f8-9254-ee64e083402e",
+      "comment": "",
+      "command": "click",
+      "target": "css=.modal-right",
+      "targets": [
+        ["css=.modal-right", "css:finder"],
+        ["xpath=//div[@id='root']/div[2]/div[3]/div/button[3]", "xpath:idRelative"],
+        ["xpath=//button[3]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "625281a7-d16c-43ca-8dab-269518879f34",
+      "comment": "",
+      "command": "click",
+      "target": "css=.modal-right",
+      "targets": [
+        ["css=.modal-right", "css:finder"],
+        ["xpath=//div[@id='root']/div[2]/div[3]/div/button[3]", "xpath:idRelative"],
+        ["xpath=//button[3]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "7ab43a3d-79ca-4602-8d6a-16062ff2af3c",
+      "comment": "",
+      "command": "click",
+      "target": "css=.fa-xmark",
+      "targets": [
+        ["css=.fa-xmark", "css:finder"]
+      ],
+      "value": ""
+    }, {
+      "id": "55e29c80-ac71-402c-815f-f99e2d93203e",
+      "comment": "",
+      "command": "click",
+      "target": "css=.fa-arrow-left-long",
+      "targets": [
+        ["css=.fa-arrow-left-long", "css:finder"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "a9215b20-e51b-43ab-b6ea-fecbc5e7d1c5",
+    "name": "RedireccionamientoARegistro",
+    "commands": [{
+      "id": "842b3e26-e85c-40ce-b9af-980ddb8f6fd6",
+      "comment": "",
+      "command": "open",
+      "target": "http://s3-hairphoria-front.s3-website.us-east-2.amazonaws.com/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "bee2eec8-ee78-4905-8db5-d03ffceb7e74",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1280x672",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "483791cd-a947-43fa-999d-df4863e26f3f",
+      "comment": "",
+      "command": "click",
+      "target": "css=.logIn > button",
+      "targets": [
+        ["css=.logIn > button", "css:finder"],
+        ["xpath=//div[@id='root']/div/div[2]/button", "xpath:idRelative"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Crear cuenta')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "1b8ab591-7322-4e2c-98b7-a6c1ad15fc05",
+      "comment": "",
+      "command": "click",
+      "target": "css=.fa-circle-xmark > path",
+      "targets": [
+        ["css=.fa-circle-xmark > path", "css:finder"]
+      ],
+      "value": ""
+    }, {
+      "id": "73cc5160-752f-4916-8ee7-5824eb3ce62e",
+      "comment": "",
+      "command": "click",
+      "target": "css=a > button",
+      "targets": [
+        ["css=a > button", "css:finder"],
+        ["xpath=//div[@id='root']/div/div[2]/a/button", "xpath:idRelative"],
+        ["xpath=//a/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Iniciar sesión')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "d9badfdb-0ff1-49b3-9734-f99e78c399b1",
+      "comment": "",
+      "command": "click",
+      "target": "css=.singUp",
+      "targets": [
+        ["css=.singUp", "css:finder"],
+        ["xpath=//div[@id='root']/div[2]/div/form/p[2]", "xpath:idRelative"],
+        ["xpath=//p[2]", "xpath:position"],
+        ["xpath=//p[contains(.,'¿No tienes cuenta? Registrate aquí')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }]
+  }],
+  "suites": [{
+    "id": "94bb959d-d2b7-4b6f-b20d-7b19e2d08706",
+    "name": "Default Suite",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": ["8c9d775f-da22-4419-8560-8975ca994876"]
+  }],
+  "urls": ["http://s3-hairphoria-front.s3-website.us-east-2.amazonaws.com/"],
+  "plugins": []
+}

@@ -1,0 +1,152 @@
+.contenedorForm {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 50px;
+  gap: 20px;
+  background-color: var(--color-primary-9);
+  padding: 20px;
+  border-radius: 20px;
+  box-shadow: 2px 2px 4px var(--color-primary-8);
+}
+
+.ServiceTitulo {
+  font-size: 30px;
+  color: var(--color-primary-0);
+  text-align: left;
+  margin-top: auto;
+}
+
+.containerCheckbox {
+  display: flex;
+}
+
+.inputCiudad {
+  width: 12.99px;
+  height: 20px;
+  margin: 0;
+  accent-color: var(--color-primary-4);
+  border-radius: 10px;
+}
+
+form {
+  width: 100%;
+}
+
+.input {
+  box-shadow: 0 2px 5px var(--color-primary-7);
+  color: var(--color-primary-0);
+  border-radius: 8px;
+}
+
+.buttonSubmit {
+  width: 20%;
+  height: 35px;
+  align-self: center;
+  background-color: var(--color-primary-4);
+  color: var(--color-primary-9);
+  border: none;
+  border-radius: 7px;
+  box-shadow: 0 2px 5px var(--color-primary-7);
+}
+
+.buttonSubmit:hover {
+  background-color: var(--color-primary-0);
+}
+
+.containerImageSelected {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Dos columnas de igual tamaño */
+  gap: 10px;
+}
+
+.imageSelected {
+  width: 100%;
+  max-width: 150px;
+  height: auto;
+  border-radius: 5%;
+  box-shadow: 0 2px 5px var(--color-primary-7);
+}
+.inputFile {
+  height: 35px;
+  border: 1px solid var(--color-primary-0);
+  border-radius: 7px;
+  color: var(--color-primary-0);
+}
+
+::-webkit-file-upload-button {
+  background-color: var(--color-primary-4);
+  color: var(--color-primary-1);
+  border: none;
+  width: 50%;
+  height: 100%;
+  font-family: var(--font-family-0);
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 7px;
+  box-shadow: 0 2px 5px var(--color-primary-7);
+}
+
+::-webkit-file-upload-button:hover {
+  background-color: var(--color-primary-0);
+}
+
+.contenedor {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.contenedorForm form {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.contenedorForm form div:nth-child(1) input {
+  width: 100%;
+  height: 30px;
+  margin-top: 10px;
+  padding: 5px;
+}
+.contenedorForm form div:nth-child(2) textarea {
+  width: 100%;
+  height: 80px;
+  margin-top: 10px;
+  padding: 5px;
+}
+
+.contenedorForm form div:nth-child(3) select {
+  width: 100%;
+  height: 30px;
+  margin-top: 10px;
+  padding: 5px;
+}
+
+.contenedorForm form div:nth-child(4) .inputPrecio,
+.contenedorForm form div:nth-child(5) .inputPalabraClave,
+.contenedorForm form div:nth-child(6) .inputAtributos {
+  width: 100%;
+  height: 30px;
+  margin-top: 10px;
+  padding: 5px;
+  box-shadow: 0 2px 5px var(--color-primary-7);
+  color: var(--color-primary-0);
+  border-radius: 8px;
+}
+
+.errorText {
+  color: red;
+}
+/*Tablet*/
+@media (max-width: 820px) {
+  .contenedorForm {
+    width: 100%;
+    height: 20%;
+  }
+  .contenedor {
+    overflow-y: scroll;
+  }
+}

@@ -1,0 +1,158 @@
+.section-buscador{
+  height: 350px;
+}
+.container-buscador {
+  height: 350px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  color: var(--color-primary-0);
+  font-size: 1.8rem;
+  font-weight: bold;
+  text-shadow: 1px 1px 20px var(--color-primary-8);
+} 
+
+#inputForm{
+  width: 200px;
+  padding: 5px;
+  font-size: 13px;
+}
+
+.container-buscador form{
+  display: flex;
+  justify-content: center;
+  width: 100vw;
+  align-items: center;
+}
+
+div.react-datepicker{
+  font-size: 0.65rem;
+}
+.react-datepicker__navigation--next--with-time:not(.react-datepicker__navigation--next--with-today-button){
+  scale: 0.7;
+  padding-bottom: 12px;
+}
+.react-datepicker__navigation--previous{
+  scale: 0.7;
+  padding-bottom: 12px !important;
+}
+.react-datepicker__close-icon::after{
+  background-color: var(--color-primary-9) !important;
+  color: var(--color-primary-0) !important;
+  font-size: 30px !important;
+  margin-right: 10px;
+}
+
+.loopVideo{
+  position: absolute  !important;
+  left: 0;
+  width: 100%;
+  height: 350px ;
+  object-fit: cover;
+  opacity: 0.7;
+  z-index: -10;
+}
+
+.container-buscador form .filtroFecha{
+  background-color: var(--color-primary-9);
+}
+
+.filtroFecha {
+  width: 160px;
+  height: 42px !important;
+  display: flex;
+  align-items: center;
+  padding-left: 10px;
+  font-size: 13px;
+  border: 1px solid var(--color-primary-8);
+  border-radius: 4px;
+  text-overflow: clip;
+}
+
+select{
+  color: var(--color-primary-0);
+  font-weight: bold;
+}
+
+
+.categoria-select, .servicios-select, .ciudad-select{
+  width: 20vw;
+  font-size: 1rem;
+  min-height: 42px;
+  
+}
+
+.css-13cymwt-control{
+  height: 42px !important
+}
+
+
+.buttonSearch{
+  height: 40px;
+  width: 100px;
+  background-color: var(--color-primary-4);
+  cursor: pointer;
+  border-radius: 8px;
+  color: var(--color-primary-1);
+  border: 1px solid transparent;
+  
+}
+
+.buttonSearch:hover {
+  border-color: var(--color-primary-1);
+}
+
+.mensajeSearch{
+  text-align: center;
+  margin: 0px;
+}
+
+.form-container div {
+  margin: 0px;
+
+}
+
+
+
+/* tablet */
+@media (max-width: 820px) {
+  .mensajeSearch{
+    margin-left: 10px;
+  }
+  .form-container{
+    height: 250px;
+    display: flex;
+  }
+  form{
+    display: flex;
+    flex-direction: column;
+  }
+
+  .container-buscador form .filtroFecha{
+    width: 300px !important;
+  }
+  .buttonSearch{
+    width: 300px;
+  }
+
+  .categoria-select, .servicios-select, .ciudad-select{
+    width: 300px;
+}
+div.react-datepicker{
+  scale: 0.85;
+  width: auto !important;
+}
+}
+/* celular */
+@media (max-width: 499px) {
+  .mensajeSearch{
+    font-size: 5vw;
+    margin: 0px;
+  }
+  .react-datepicker-popper[data-placement^=bottom]{
+    padding-top: 0px !important;
+  }
+  
+}

@@ -1,0 +1,241 @@
+.usersData {
+    position: relative;
+    width: 100%;
+    height: 65vh;
+    padding: 20px;
+    display: grid;
+    grid-template-columns: 1fr;
+    overflow-y: auto;
+    overflow-x: hidden;
+    font-size: .7rem;
+}
+
+.usersData::-webkit-scrollbar {
+    width: .3rem;
+}
+
+.usersData::-webkit-scrollbar-track {
+    background-color: var(--color-primary-8);
+}
+
+.usersData::-webkit-scrollbar-thumb {
+    background-color: var(--color-primary-4);
+}
+
+.usersData::-webkit-scrollbar-thumb:hover {
+    background-color: var(--color-primary-0);
+}
+
+.userTable {
+    position: relative;
+    display: grid;
+    background-color: var(--color-primary-9);
+    padding: 50px;
+    box-shadow: 0 7px 25px var(--color-primary-8);
+    border-radius: 10px;
+}
+
+.cardHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.usersData table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+    font-size: 1rem;
+}
+
+.usersData table thead td {
+    font-weight: 600;
+    padding: 10px;
+}
+
+.userTable table tr {
+    border-bottom: 1px solid var(--color-primary-8);
+}
+
+.userTable table tbody tr:hover {
+    background-color: var(--color-primary-8);
+    color: var(--color-primary-0);
+}
+
+.usersData table tbody td {
+    padding: 10px;
+}
+
+.rol-select {
+    width: 80%;
+    font-size: .7rem;
+    border-radius: 20px;
+}
+
+.react-select__menu {
+    color: var(--color-primary-0);
+}
+
+
+.rol-select.usuario,
+.rol-select.admin {
+    background-color: transparent;
+}
+
+.react-select__menu .react-select__option:hover {
+    background-color: var(--color-primary-4);
+}
+
+.react-select__menu .react-select__option--is-selected {
+    background-color: var(--color-primary-0);
+}
+
+.nameCell {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.emailCell {
+    max-width: 150px;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    word-break: break-all;
+    hyphens: auto;
+}
+
+.containerAdmin {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+
+}
+
+.addAdminPanel {
+    display: grid;
+    grid-template-columns: 1fr;
+    margin: 0 3%;
+}
+
+#buttonsAdmin {
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid var(--color-primary-8);
+    background-color: var(--color-primary-9);
+    box-shadow: 3px 3px 6px var(--color-primary-8);
+    width: 30vh;
+    margin: 2%;
+    justify-self: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+#buttonsAdmin button {
+    min-width: 11vh;
+}
+
+#buttonsAdmin:hover {
+    background-color: var(--color-primary-8);
+}
+
+.addPlus {
+    background-color: var(--color-primary-4);
+    color: var(--color-primary-9);
+    border: none;
+    border-radius: 4px;
+    padding: 8%;
+    width: 10vh;
+    margin: 15% 0;
+    cursor: pointer;
+}
+
+.addPlus:hover {
+    background-color: var(--color-primary-0);
+}
+
+
+@media screen and (min-width: 481px) and (max-width: 1024px) {
+    .userTable {
+        padding: 30px;
+    }
+
+    .usersData table {
+        font-size: 13px;
+    }
+
+    .usersData table thead td,
+    table tbody td {
+        padding: 8px;
+    }
+
+    .rol-select {
+        width: 100%;
+        height: 50%;
+        font-size: 0.5rem;
+    }
+
+    .nameCell {
+        white-space: normal;
+        overflow: visible;
+        text-overflow: unset;
+    }
+
+    .addAdminPanel {
+        grid-template-columns: 1fr;
+        margin: 1rem;
+    }
+
+    .addAdminPanel h3 {
+        font-size: 1rem;
+    }
+}
+
+@media screen and (max-width: 480px) {
+
+    .userTable {
+        padding: 10px;
+    }
+
+    .usersData::-webkit-scrollbar-thumb {
+        background-color: var(--color-primary-0);
+    }
+    
+    .usersData::-webkit-scrollbar-thumb:hover {
+        background-color: var(--color-primary-4);
+    }
+
+    .usersData table {
+        font-size: 13px;
+    }
+
+    .usersData table thead td,
+    table tbody td {
+        padding: 8px;
+    }
+
+    .rol-select {
+        width: 100%;
+        height: 4rem;
+        font-size: 0.5rem;
+    }
+
+    .nameCell {
+        white-space: normal;
+        overflow: visible;
+        text-overflow: unset;
+        max-width: 5vh;
+    }
+
+    .containerAdmin {
+        display: block;
+    }
+
+    .addAdminPanel {
+        margin: .3rem;
+        grid-template-columns: 1fr;
+        max-height: 0px;
+    }
+
+}
